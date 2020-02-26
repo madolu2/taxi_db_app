@@ -2,7 +2,6 @@ import random as r
 
 
 class DriverGenerator:
-
 	def generate_name(self):
 		first_name = ['Август', 'Гавриил', 'Динор', 'Александр', 'Богдан', 'Валентин', 'Дорот', 'Мирослав']
 		patronymic = ['Александров', 'Дмитриев', 'Федоров', 'Оскаров', 'Ильич', 'Олегов']
@@ -126,8 +125,6 @@ class DriverGenerator:
 				+ '\nАдрес прибытия ' + night_call['destination_area'] + '\nЦена ' + str(night_call['price'])
 			file.write(night_call_line + '\n\n')
 
-dr = DriverGenerator()
-dr.generate_log_file()
 
 
 
