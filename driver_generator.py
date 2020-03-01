@@ -67,8 +67,8 @@ class DriverGenerator:
 		"name": data['fname'],
 		"lname": data['lname'],
 		"experience": r.randint(5,15),
-		"fine": r.choice(['Yes', 'No']),
-		"commendation": r.choice(['Yes', 'No'])
+		"fine": r.choice([0, 1]),
+		"commendation": r.choice([0, 1])
 	}
 		return driver
 
@@ -106,24 +106,6 @@ class DriverGenerator:
 		"number": generate_auto_number()
 		}
 		return auto
-
-	def generate_log_file(self):
-		with open('log_file.txt', 'w') as file:
-			auto = self.generate_auto()
-			driver = self.generate_driver()
-			call = self.generate_call()
-
-			auto_line = auto['color'] + ' ' + auto['brand'] + ' ' + auto['number']
-			file.write(auto_line + '\n')
-			
-			driver_line = driver['name'] + ' ' + driver['lname'] + '\nОпыт ' \
-				+ str(driver['experience']) + ' лет' + '\nШтрафы ' + driver['fine'] + '\nПохвалы ' + driver['fine']
-			file.write(driver_line)
-
-			call_line = '\nДата ' + call['date'] + '\nРасстояние ' + str(call['length']) \
-				+ ' км' + '\nАдрес отправления ' + call['call_area'] \
-				+ '\nАдрес прибытия ' + call['destination_area'] + '\nЦена ' + str(call['price'])
-			file.write(call_line + '\n\n')
 
 
 
