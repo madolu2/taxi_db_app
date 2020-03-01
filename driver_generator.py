@@ -72,16 +72,16 @@ class DriverGenerator:
 	}
 		return driver
 
-	def generate_night_call(self):
+	def generate_call(self):
 		length = r.randint(3,50)
-		night_call = {
+		call = {
 		"date": self.generate_date(),
 		"length": length,
 		"call_area": self.generate_area(),
 		"destination_area": self.generate_area(),
 		"price": (100 + length*15)
 	}
-		return night_call
+		return call
 
 	def generate_auto(self):
 		colors = ['Blue', 'Gray', 'Black', 'White', 'Red', 'Green', 'Purple', 'Yellow']
@@ -111,7 +111,7 @@ class DriverGenerator:
 		with open('log_file.txt', 'w') as file:
 			auto = self.generate_auto()
 			driver = self.generate_driver()
-			night_call = self.generate_night_call()
+			call = self.generate_call()
 
 			auto_line = auto['color'] + ' ' + auto['brand'] + ' ' + auto['number']
 			file.write(auto_line + '\n')
@@ -120,10 +120,10 @@ class DriverGenerator:
 				+ str(driver['experience']) + ' лет' + '\nШтрафы ' + driver['fine'] + '\nПохвалы ' + driver['fine']
 			file.write(driver_line)
 
-			night_call_line = '\nДата ' + night_call['date'] + '\nРасстояние ' + str(night_call['length']) \
-				+ ' км' + '\nАдрес отправления ' + night_call['call_area'] \
-				+ '\nАдрес прибытия ' + night_call['destination_area'] + '\nЦена ' + str(night_call['price'])
-			file.write(night_call_line + '\n\n')
+			call_line = '\nДата ' + call['date'] + '\nРасстояние ' + str(call['length']) \
+				+ ' км' + '\nАдрес отправления ' + call['call_area'] \
+				+ '\nАдрес прибытия ' + call['destination_area'] + '\nЦена ' + str(call['price'])
+			file.write(call_line + '\n\n')
 
 
 
