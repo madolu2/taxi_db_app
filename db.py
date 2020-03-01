@@ -27,9 +27,14 @@ class MyDatabase:
         else:
             print("DBType is not found in DB_ENGINE")
     
-    def drop_table(self, table):
-        query = f"DROP {table};"
+    def drop_tables(self):
+        query = "DROP TABLE driver;"
         self.execute_query(query)
+        query = "DROP TABLE call;"
+        self.execute_query(query)
+        query = "DROP TABLE auto;"
+        self.execute_query(query)
+        
 
 
     def create_db_tables(self):

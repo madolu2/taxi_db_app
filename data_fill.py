@@ -5,14 +5,13 @@ import random as r
 
 dgen = driver_generator.DriverGenerator()
 database = db.MyDatabase(db.SQLITE, dbname='taxi.db')
-
-
+database.drop_tables()
 database.create_db_tables()
 call_ids = []
 driver_id  = 1
 auto_id = 1
 
-for i in range(400):
+for i in range(500):
     driver = dgen.generate_driver()
     auto = dgen.generate_auto()
     call = dgen.generate_call()
