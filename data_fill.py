@@ -50,6 +50,4 @@ for i in range(number_of_drivers):
     driver_id  += 1
     auto_id += 1
 
-
-database.print_all_data(table='driver')
         

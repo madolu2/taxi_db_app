@@ -34,8 +34,6 @@ class MyDatabase:
         self.execute_query(query)
         query = "DROP TABLE auto;"
         self.execute_query(query)
-        
-
 
     def create_db_tables(self):
         metadata = MetaData()
@@ -79,10 +77,11 @@ class MyDatabase:
             except Exception as e:
                 print(e)    
 
-    def print_all_data(self, table='', query=''):
+       
+    def get_data(self, table='', query='', debug=False):
         query = query if query != '' else "SELECT * FROM '{}';".format(table)
-        print(query)
-    
+        if debug: print(query)
+        data = []
         with self.db_engine.connect() as connection:
             try:
                 result = connection.execute(query)
@@ -90,9 +89,9 @@ class MyDatabase:
                 print(e)
             else:
                 for row in result:
-                    print(row) # print(row[0], row[1], row[2])
+                    data.append(row)
                 result.close()
-                print("\n")
+                return data
 
     def driver_insert(self, id, first_name, last_name, experience, fine, commendation):
         # Insert Data
