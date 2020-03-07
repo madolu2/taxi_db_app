@@ -56,7 +56,9 @@ class MyDatabase:
         Column('date', String),
         Column('length', Integer),
         Column('call_area', String),
+        Column('ca_home', String),
         Column('destination_area', String),
+        Column('da_home', String),
         Column('price', Integer),
         Column('driver_id', None, ForeignKey('driver.id')),
         Column('auto_id', None, ForeignKey('auto.id')))
@@ -105,10 +107,10 @@ class MyDatabase:
                 f"VALUES ({id}, '{color}', '{brand}', '{number}');"
         self.execute_query(query)
 
-    def call_insert(self, id, date, length, call_area, destination_area, price, driver_id, auto_id):
+    def call_insert(self, id, date, length, call_area, ca_home, destination_area, da_home, price, driver_id, auto_id):
         # Insert Data
-        query = f"INSERT INTO {CALLS}(id, date, length, call_area, destination_area, price, driver_id, auto_id) " \
-                f"VALUES ({id}, '{date}', {length}, '{call_area}', '{destination_area}', {price}, {driver_id}, {auto_id});"
+        query = f"INSERT INTO {CALLS}(id, date, length, call_area, ca_home, destination_area, da_home, price, driver_id, auto_id) " \
+                f"VALUES ({id}, '{date}', {length}, '{call_area}', '{ca_home}', '{destination_area}', '{da_home}', {price}, {driver_id}, {auto_id});"
         self.execute_query(query)
     
     

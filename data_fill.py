@@ -10,7 +10,7 @@ database = db.MyDatabase(db.SQLITE, dbname='taxi.db')
 database.drop_tables()
 database.create_db_tables()
 
-number_of_drivers = 300
+number_of_drivers = 5
 call_ids = []
 driver_id  = 1
 auto_id = 1
@@ -42,10 +42,12 @@ for i in range(number_of_drivers):
                         call['date'],
                         call['length'],
                         call['call_area'],
+                        call['ca_home'],
                         call['destination_area'],
+                        call['da_home'],
                         call['price'],
-                        r.randint(0,number_of_drivers),
-                        r.randint(0,number_of_drivers))
+                        r.randint(1,number_of_drivers),
+                        r.randint(1,number_of_drivers))
 
     driver_id  += 1
     auto_id += 1

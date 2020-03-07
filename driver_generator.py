@@ -59,7 +59,7 @@ class DriverGenerator:
 		def generate_home_num():
 			return r.randint(1,100)
 
-		return f'{generate_street()}, д{generate_home_num()}'
+		return f'{generate_street()}', f'д{generate_home_num()}'
 
 	def generate_driver(self):
 		data = self.generate_name()
@@ -74,11 +74,15 @@ class DriverGenerator:
 
 	def generate_call(self):
 		length = r.randint(3,50)
+		call_area, ca_home = self.generate_area()
+		destination_area, da_home = self.generate_area()
 		call = {
 		"date": self.generate_date(),
 		"length": length,
-		"call_area": self.generate_area(),
-		"destination_area": self.generate_area(),
+		"call_area": call_area,
+		"ca_home": ca_home,
+		"destination_area": destination_area,
+		"da_home": da_home,
 		"price": (100 + length*15)
 	}
 		return call
