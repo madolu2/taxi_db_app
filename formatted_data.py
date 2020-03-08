@@ -79,12 +79,3 @@ class FormattedData():
                 return formatted_auto
         except Exception as e:
             return f"Failed -> {e}"
-
-fd = FormattedData()
-
-# for d in data:
-#     print(d)
-        # try:
-        #     pass
-        # except Exception as e:
-        #     return f"Failed {e}"
