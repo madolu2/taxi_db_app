@@ -1,16 +1,16 @@
 import db
-import driver_generator
+import dg
 import random as r
 
 
-dgen = driver_generator.DriverGenerator()
+dgen = dg.DriverGenerator()
 #Put ur DMS and DBname here ->
 database = db.MyDatabase(db.SQLITE, dbname='taxi.db')
 #Delete and create tables
 database.drop_tables()
 database.create_db_tables()
 
-number_of_drivers = 5
+number_of_drivers = 100
 call_ids = []
 driver_id  = 1
 auto_id = 1
