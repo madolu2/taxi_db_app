@@ -81,10 +81,9 @@ class FormattedData():
             return f"Failed -> {e}"
 
 fd = FormattedData()
-data = fd.get_drivers()
-# print(data)
-for d in data:
-    print(d)
+
+# for d in data:
+#     print(d)
         # try:
         #     pass
         # except Exception as e:
